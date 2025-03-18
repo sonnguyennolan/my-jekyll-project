@@ -8,8 +8,7 @@
     "watch:webpack": "encore dev --watch",
     "watch:jekyll": "bundle exec jekyll serve --livereload --drafts --open",
     "watch:css": "postcss core/css/app.css -o assets/css/app.css --watch",
-    "build": "encore prod && postcss core/css/app.css -o assets/css/app.css",
-    "build:css": "postcss core/css/app.css -o assets/css/app.css"
+    "build": "encore prod && postcss core/css/app.css -o assets/css/app.css"
   },
   "repository": {
     "type": "git",
