@@ -1,0 +1,25 @@
+title: "My Jekyll Project"
+url: "https://sonnguyennolan.github.io/my-jekyll-project"
+description: "A sample Jekyll project with TailwindCSS and AlpineJS"
+
+plugins:
+    - jekyll-redirect-from
+    - jekyll-seo-tag
+    - jekyll-sitemap
+
+exclude:
+    [
+        "_site",
+        "package*.json",
+        "*.config.js",
+        "README.md",
+        "LICENSE",
+        "Makefile",
+        ".idea",
+        "assets/*.json",
+        "node_modules",
+    ]
+
+collections:
+    docs:
+        output: true

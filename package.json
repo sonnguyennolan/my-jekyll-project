@@ -1,0 +1,33 @@
+{
+  "name": "my-jekyll-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently -k --restart-tries 3 --restart-after 3000 -p [{name}] -n webpack,jekyll -c yellow,cyan npm:watch:webpack npm:watch:jekyll",
+    "dev": "encore dev",
+    "prod": "encore prod",
+    "watch:webpack": "encore dev --watch",
+    "watch:jekyll": "bundle exec jekyll serve --livereload --drafts --open",
+    "build": "encore prod && bundle exec jekyll build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonnguyennolan/my-jekyll-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonnguyennolan/my-jekyll-project/issues"
+  },
+  "homepage": "https://github.com/sonnguyennolan/my-jekyll-project#readme",
+  "description": "",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^5.1.0",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "postcss": "^8.5.3",
+    "postcss-loader": "^8.1.1",
+    "tailwindcss": "^4.0.14"
+  }
+}

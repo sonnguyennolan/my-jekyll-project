@@ -1,0 +1,14 @@
+<div class="bg-white p-4 rounded shadow">
+  <h3 class="text-lg font-semibold mb-4">Documentation</h3>
+  <ul class="space-y-2">
+    {% assign docs = site.docs | sort: "order" %}
+    {% for doc in docs %}
+      <li>
+        <a href="{{ doc.url | relative_url }}" 
+           class="{% if page.url == doc.url %}text-primary font-bold{% else %}text-gray-700 hover:text-primary{% endif %}">
+          {{ doc.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
