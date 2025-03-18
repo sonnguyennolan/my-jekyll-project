@@ -8,9 +8,9 @@
     "prod": "encore prod",
     "watch:webpack": "encore dev --watch",
     "watch:jekyll": "bundle exec jekyll serve --livereload --drafts --open",
+    "watch:css": "postcss core/css/app.css -o assets/css/app.css --watch",
     "build": "encore prod && bundle exec jekyll build",
-    "build:css": "postcss core/css/app.css -o assets/css/app.css",
-    "watch:css": "postcss core/css/app.css -o assets/css/app.css --watch"
+    "build:css": "postcss core/css/app.css -o assets/css/app.css"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
     "postcss-loader": "^8.1.1",
     "tailwindcss": "3.3.0",
     "webpack": "^5.98.0",
-    "webpack-cli": "^6.0.1",
+    "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
