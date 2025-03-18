@@ -1,7 +1,6 @@
 {
   "name": "my-jekyll-project",
-  "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "start": "concurrently -k -p \"[{name}]\" -n \"css,jekyll,webpack\" -c \"green.bold,cyan.bold,yellow.bold\" \"npm run watch:css\" \"npm run watch:jekyll\" \"npm run watch:webpack\"",
     "dev": "encore dev",
@@ -9,16 +8,13 @@
     "watch:webpack": "encore dev --watch",
     "watch:jekyll": "bundle exec jekyll serve --livereload --drafts --open",
     "watch:css": "postcss core/css/app.css -o assets/css/app.css --watch",
-    "build": "encore prod && bundle exec jekyll build",
+    "build": "encore prod && node commands/build-search-index.js && postcss core/css/app.css -o assets/css/app.css",
     "build:css": "postcss core/css/app.css -o assets/css/app.css"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sonnguyennolan/my-jekyll-project.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/sonnguyennolan/my-jekyll-project/issues"
   },
@@ -32,9 +28,13 @@
     "babel-loader": "^10.0.0",
     "concurrently": "^9.1.2",
     "core-js": "3",
+    "glob": "^11.0.1",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
     "postcss": "^8.5.3",
     "postcss-cli": "^11.0.1",
     "postcss-loader": "^8.1.1",
+    "prettier": "^3.5.3",
     "tailwindcss": "3.3.0",
     "webpack": "^5.98.0",
     "webpack-cli": "^5.1.4",

@@ -2,12 +2,19 @@
 layout: default
 ---
 
-<div class="text-center py-12">
-  <h1 class="text-5xl font-bold text-gray-800 mb-4">Welcome to My Jekyll Project</h1>
-  <p class="text-xl text-gray-600 mb-8">A demonstration of Jekyll, TailwindCSS, and AlpineJS</p>
-  <a href="{{ '/docs/' | relative_url }}" class="bg-primary hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
-    View Documentation
-  </a>
+<div class="py-12 bg-gradient-to-r from-primary to-blue-600 dark:from-blue-800 dark:to-purple-900">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Welcome to My Jekyll Project</h1>
+    <p class="text-xl text-white/80 mb-8 max-w-3xl mx-auto">A modern documentation site built with Jekyll, TailwindCSS, and AlpineJS</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="{{ '/docs/' | relative_url }}" class="bg-white text-primary hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition duration-300">
+        View Documentation
+      </a>
+      <a href="https://github.com/sonnguyennolan/my-jekyll-project" class="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-3 px-6 rounded-lg transition duration-300">
+        GitHub Repository
+      </a>
+    </div>
+  </div>
 </div>
 
 <div class="grid md:grid-cols-3 gap-8 my-12">

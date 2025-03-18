@@ -1,0 +1,6 @@
+- id: tab1
+  name: First Tab
+  content: <p>This is the content of the first tab.</p>
+- id: tab2
+  name: Second Tab
+  content: <p>This is the content of the second tab.</p>

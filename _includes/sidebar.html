@@ -1,14 +1,37 @@
-<div class="bg-white p-4 rounded shadow">
-  <h3 class="text-lg font-semibold mb-4">Documentation</h3>
-  <ul class="space-y-2">
-    {% assign docs = site.docs | sort: "order" %}
-    {% for doc in docs %}
-      <li>
-        <a href="{{ doc.url | relative_url }}" 
-           class="{% if page.url == doc.url %}text-primary font-bold{% else %}text-gray-700 hover:text-primary{% endif %}">
-          {{ doc.title }}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+<div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+  <h3 class="text-lg font-semibold mb-4 dark:text-white">Documentation</h3>
+  
+  <div x-data="{ expanded: {} }">
+    <!-- Getting Started Section -->
+    <div class="mb-2">
+      <button @click="expanded.gettingStarted = !expanded.gettingStarted" 
+              class="flex justify-between items-center w-full text-left p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+        <span class="font-medium">Getting Started</span>
+        <svg :class="expanded.gettingStarted ? 'rotate-180 transform' : ''" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      
+      <div x-show="expanded.gettingStarted" x-collapse>
+        <a href="{{ site.baseurl }}/docs/" class="block pl-4 py-2 text-sm hover:text-primary">Introduction</a>
+        <a href="{{ site.baseurl }}/docs/installation/" class="block pl-4 py-2 text-sm hover:text-primary">Installation</a>
+      </div>
+    </div>
+    
+    <!-- Components Section -->
+    <div class="mb-2">
+      <button @click="expanded.components = !expanded.components"
+              class="flex justify-between items-center w-full text-left p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+        <span class="font-medium">Components</span>
+        <svg :class="expanded.components ? 'rotate-180 transform' : ''" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      
+      <div x-show="expanded.components" x-collapse>
+        <a href="{{ site.baseurl }}/docs/tailwindcss/" class="block pl-4 py-2 text-sm hover:text-primary">TailwindCSS</a>
+        <a href="{{ site.baseurl }}/docs/alpinejs/" class="block pl-4 py-2 text-sm hover:text-primary">AlpineJS</a>
+      </div>
+    </div>
+  </div>
 </div>

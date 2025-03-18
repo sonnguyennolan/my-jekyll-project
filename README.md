@@ -21,7 +21,7 @@ A sample Jekyll website using TailwindCSS for styling and AlpineJS for interacti
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/username/my-jekyll-project.git
+   git clone https://github.com/sonnguyennolan/my-jekyll-project.git
    cd my-jekyll-project
    ```
 

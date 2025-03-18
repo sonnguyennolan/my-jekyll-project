@@ -21,7 +21,7 @@ Before you begin, make sure you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/my-jekyll-project.git
+   git clone https://github.com/sonnguyennolan/my-jekyll-project.git
    cd my-jekyll-project
    ```
 
