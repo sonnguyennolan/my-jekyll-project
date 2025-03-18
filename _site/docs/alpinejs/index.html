@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlpineJS | My Jekyll Project</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <header class="bg-white shadow" x-data="{ mobileMenuOpen: false }">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <div class="flex items-center">
+        <a href="/" class="text-xl font-bold text-primary">My Jekyll Project</a>
+      </div>
+      
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="/" class="hover:text-secondary">Home</a>
+        <a href="/docs/" class="hover:text-secondary">Documentation</a>
+        <a href="https://github.com/username/my-jekyll-project" class="hover:text-secondary" target="_blank">GitHub</a>
+      </div>
+      
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <div x-show="mobileMenuOpen" class="md:hidden py-2 pb-4">
+      <a href="/" class="block py-2 hover:text-secondary">Home</a>
+      <a href="/docs/" class="block py-2 hover:text-secondary">Documentation</a>
+      <a href="https://github.com/username/my-jekyll-project" class="block py-2 hover:text-secondary" target="_blank">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+  
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <div class="flex flex-col md:flex-row">
+  <div class="md:w-1/4 pr-4" x-data="{ open: window.innerWidth >= 768 }">
+    <button @click="open = !open" class="md:hidden w-full bg-primary text-white py-2 mb-4 rounded">
+      Toggle Menu
+    </button>
+    <div x-show="open" class="transition duration-200">
+      <div class="bg-white p-4 rounded shadow">
+  <h3 class="text-lg font-semibold mb-4">Documentation</h3>
+  <ul class="space-y-2">
+    
+    
+      <li>
+        <a href="/docs/" 
+           class="text-gray-700 hover:text-primary">
+          Getting Started
+        </a>
+      </li>
+    
+      <li>
+        <a href="/docs/tailwindcss/" 
+           class="text-gray-700 hover:text-primary">
+          TailwindCSS
+        </a>
+      </li>
+    
+      <li>
+        <a href="/docs/alpinejs/" 
+           class="text-primary font-bold">
+          AlpineJS
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+  </div>
+  <div class="md:w-3/4">
+    <h1 class="text-3xl font-bold mb-6">AlpineJS</h1>
+    <div class="prose max-w-none">
+      <h1 id="alpinejs">AlpineJS</h1>
+
+<p>This project uses AlpineJS for adding interactive elements. Here’s how to use it.</p>
+
+<h2 id="basic-usage">Basic Usage</h2>
+
+<p>AlpineJS allows you to add interactivity directly in your HTML markup using directives.</p>
+
+<h3 id="toggle-example">Toggle Example</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">x-data=</span><span class="s">"{ open: false }"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="err">@</span><span class="na">click=</span><span class="s">"open = !open"</span><span class="nt">&gt;</span>Toggle<span class="nt">&lt;/button&gt;</span>
+  
+  <span class="nt">&lt;div</span> <span class="na">x-show=</span><span class="s">"open"</span><span class="nt">&gt;</span>
+    This content will be shown when toggled.
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h3 id="dropdown-example">Dropdown Example</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">x-data=</span><span class="s">"{ isOpen: false }"</span> <span class="err">@</span><span class="na">click.away=</span><span class="s">"isOpen = false"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="err">@</span><span class="na">click=</span><span class="s">"isOpen = !isOpen"</span><span class="nt">&gt;</span>Menu<span class="nt">&lt;/button&gt;</span>
+  
+  <span class="nt">&lt;div</span> <span class="na">x-show=</span><span class="s">"isOpen"</span> <span class="na">x-transition</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link 1<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link 2<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link 3<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h2 id="learning-resources">Learning Resources</h2>
+
+<ul>
+  <li><a href="https://alpinejs.dev/start-here">AlpineJS Documentation</a></li>
+  <li><a href="https://alpinejs.dev/components">AlpineJS Examples</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+  </main>
+  
+  <footer class="bg-gray-800 text-white py-8">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between">
+      <div class="mb-4 md:mb-0">
+        <h3 class="text-xl font-bold mb-2">My Jekyll Project</h3>
+        <p class="text-gray-400">A sample Jekyll project with TailwindCSS and AlpineJS</p>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Links</h4>
+        <ul>
+          <li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
+          <li><a href="/docs/" class="text-gray-400 hover:text-white">Documentation</a></li>
+          <li><a href="https://github.com/sonnguyennolan/my-jekyll-project" class="text-gray-400 hover:text-white" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 pt-8 border-t border-gray-700 text-sm text-gray-400">
+      <p>&copy; 2025 My Jekyll Project. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

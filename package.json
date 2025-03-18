@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently -k --restart-tries 3 --restart-after 3000 -p [{name}] -n webpack,jekyll -c yellow,cyan npm:watch:webpack npm:watch:jekyll",
+    "start": "concurrently -k -p \"[{name}]\" -n \"css,jekyll,webpack\" -c \"green.bold,cyan.bold,yellow.bold\" \"npm run watch:css\" \"npm run watch:jekyll\" \"npm run watch:webpack\"",
     "dev": "encore dev",
     "prod": "encore prod",
     "watch:webpack": "encore dev --watch",
     "watch:jekyll": "bundle exec jekyll serve --livereload --drafts --open",
-    "build": "encore prod && bundle exec jekyll build"
+    "build": "encore prod && bundle exec jekyll build",
+    "build:css": "postcss core/css/app.css -o assets/css/app.css",
+    "watch:css": "postcss core/css/app.css -o assets/css/app.css --watch"
   },
   "repository": {
     "type": "git",
@@ -23,11 +25,23 @@
   "homepage": "https://github.com/sonnguyennolan/my-jekyll-project#readme",
   "description": "",
   "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
     "@symfony/webpack-encore": "^5.1.0",
     "autoprefixer": "^10.4.21",
+    "babel-loader": "^10.0.0",
     "concurrently": "^9.1.2",
+    "core-js": "3",
     "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
     "postcss-loader": "^8.1.1",
-    "tailwindcss": "^4.0.14"
-  }
+    "tailwindcss": "3.3.0",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "dependencies": {
+    "alpinejs": "^3.14.9"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

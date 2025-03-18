@@ -13,6 +13,10 @@ Encore
   .addEntry('js/app', './core/js/app.js')
   .enablePostCssLoader()
   .disableSingleRuntimeChunk()
-  .enableSourceMaps(!Encore.isProduction());
+  .enableSourceMaps(!Encore.isProduction())
+  .configureBabel(() => {}, {
+    useBuiltIns: 'usage',
+    corejs: 3
+  });
 
 module.exports = Encore.getWebpackConfig();

@@ -10,12 +10,12 @@
         <ul>
           <li><a href="{{ '/' | relative_url }}" class="text-gray-400 hover:text-white">Home</a></li>
           <li><a href="{{ '/docs/' | relative_url }}" class="text-gray-400 hover:text-white">Documentation</a></li>
-          <li><a href="https://github.com/username/my-jekyll-project" class="text-gray-400 hover:text-white" target="_blank">GitHub</a></li>
+          <li><a href="https://github.com/sonnguyennolan/my-jekyll-project" class="text-gray-400 hover:text-white" target="_blank">GitHub</a></li>
         </ul>
       </div>
     </div>
     <div class="mt-8 pt-8 border-t border-gray-700 text-sm text-gray-400">
-      <p>&copy; {% raw %}{{ 'now' | date: "%Y" }}{% endraw %} {{ site.title }}. All rights reserved.</p>
+      <p>&copy; {{ site.time | date: "%Y" }} My Jekyll Project. All rights reserved.</p>
     </div>
   </div>
 </footer>
